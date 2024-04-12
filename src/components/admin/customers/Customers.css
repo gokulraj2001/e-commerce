@@ -1,0 +1,22 @@
+.customers-container{
+    text-align: center;
+    margin-top: 20px;
+}
+.customers-heading{
+    color: green;
+}
+.customers-table{
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.customers-table th, .customers-table td{
+    border: 1px solid black;
+    padding: 12px;
+    text-align: center;
+}
+.customers-table th{
+    background-color: bisque;
+    color: black;
+}
