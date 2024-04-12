@@ -1,0 +1,21 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: Download Deployment File
+      get_url:
+        url: https://oneartifactoryci.verizon.com/artifactory/WPSG_POSAWS/Interns-team4/build.zip
+        url_username: "{{ username }}"
+        url_password: "{{ password }}"
+        dest: /home/vgo2ar7/frontend
+        timeout: 120
+        force_basic_auth: yes
+      with_items:
+        - build.zip
+    - name: Unzip the file
+      unarchive:
+        src: /home/vgo2ar7/frontend/build.zip
+        dest: /home/vgo2ar7/frontend
+    - name: Install serve
+      ansible.builtin.shell: npm install -g serve 
+    - name: Deploy the project
+      ansible.builtin.shell: serve -s build  &
